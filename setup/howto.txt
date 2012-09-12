@@ -1,0 +1,47 @@
+There are 4 things you need to do to add a form or report to GOCFS.
+These instructions are for a form, replace the word "form" with 
+"report" to add a report.
+
+
+1) open up "gocfs/includes/constants.php" and add the name of your
+	form at the end of the array:
+	
+	$form_names = array("form1",
+				...
+				...
+				"The Name Of My New Form");
+
+
+2) create a file "gocfs/dat/forms/form__.php" where __ is the index
+	of your form in the $form_names array above.  Copy the contents
+	of "gocfs/dat/forms/form.php" into this file to use as a 
+	template.
+	
+	This file will be the file that the user sees when they first
+	click on the form button on the left for your form. It should
+	get all user input for the form, however, it can also connect
+	to the database to get information if nessicary.
+	
+	
+3) create a file "gocfs/process/forms/form__.php" where __ is the
+	index of your form in the $form_names array above.  Copy
+	the contents of "gocfs/process/forms/form.php" into this file
+	to use as a template.   Follow the instructions in the
+	template.
+	
+	This file is the php code that processes the user input from
+	the first file you created and gathers all of the results and
+	stores them in the $results array.
+
+
+4) create a file "gocfs/dat/forms/result__.php" where __ is the index
+	of your form in the $form_names array above. Copy the contents
+	of "gocfs/dat/forms/form/php" into this file to use as a 
+	template.  
+	
+	This file is where you take the results of the form from the
+	$results array and display them to the user.  
+	
+
+That's it!  After you finish make sure to test it and make sure that 
+everything works as expected.
